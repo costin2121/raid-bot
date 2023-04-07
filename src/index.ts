@@ -9,14 +9,14 @@ const client = new Client({
 client.loadCommands({
   clientToken: process.env.TOKEN!,
   commandsFolder: "commands",
-  clientId: "",
+  clientId: process.env.CLIENT_ID,
   globalCommands: true,
-  guildId: "",
+  guildId: process.env.GUILD_ID,
 });
 client.loadEvents("events");
 client.connectToPostgres({
-  database: "",
-  port: 0000,
+  database: process.env.POSTGRES_DB,
+  port: process.env.POSTGRES_PORT,
   host: "localhost",
   user: "postgres",
   password: process.env.POSTGRES_PASSWORD,
